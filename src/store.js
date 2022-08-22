@@ -3,21 +3,21 @@ import { createStore } from "redux";
 const ADD = "ADD"
 const DELETE = "DELETE"
 
-// export const addToDo = (text) => {
-//   return {
-//     type: ADD, 
-//     text
-//   }
-// }
+const addToDo = (text) => {
+  return {
+    type: ADD, 
+    text
+  }
+}
 
-// export const deleteTodo = (id) => {
-//   return {
-//     type: DELETE, 
-//     id
-//   }
-// }
+const deleteTodo = (id) => {
+  return {
+    type: DELETE, 
+    id
+  }
+}
 
-const reducer = (state = [], action) => {
+const reducer = (state = [{ text: "initial text", id: Date.now() }], action) => {
   switch(action.type) {
     case ADD: 
       return [
@@ -33,6 +33,9 @@ const reducer = (state = [], action) => {
 
 const store = createStore(reducer)
 
-// store.subscribe()
+export const actionCreators = {
+  addToDo, 
+  deleteTodo
+}
 
 export default store
