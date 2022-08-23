@@ -11,13 +11,15 @@ const addToDo = (text) => {
 }
 
 const deleteTodo = (id) => {
+  console.log({id})
   return {
     type: DELETE, 
     id
   }
 }
 
-const reducer = (state = [{ text: "initial text", id: Date.now() }], action) => {
+const reducer = (state = [], action) => {
+  console.log(state, action)
   switch(action.type) {
     case ADD: 
       return [

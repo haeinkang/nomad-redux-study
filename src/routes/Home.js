@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { actionCreators } from '../store'
+import ToDo from '../ToDo';
 
 function Home(props) {
-  console.log(props)
   const [text, setText] = useState('')
 
   function onChange(e) {
@@ -25,8 +25,8 @@ function Home(props) {
         <button>Add</button>
       </form>
       <ul>
-        {props.toDos.map((todo, index) => 
-          <div key={index}>{`${todo.id} - ${todo.text}`}</div>  
+        {props.toDos.map((toDo, index) => 
+          <ToDo key={index} toDo={toDo} />  
         )}
       </ul>
     </React.Fragment>
